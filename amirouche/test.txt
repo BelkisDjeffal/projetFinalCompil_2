@@ -1,0 +1,47 @@
+<!docprogram Test>
+
+<!-- comment -->
+
+    <SUB  VARIABLE>
+        
+        <nom_variable AS INT />;
+        <nom_variable AS INT />;
+
+        <!-- comment -->
+        
+        <ARRAY AS INT >        
+            <nom_tableau1: 2/>
+            <nom_tableau2: 3/>
+        </ARRAY>              
+        
+        <nom_variable | nom_variable2 AS INT />;
+
+    </SUB  VARIABLE>
+
+    <SUB  CONSTANTE>
+        <nom_constante1 = (-3409)/>;
+        <nom_constante1 = TRUE/>;
+        <nom_constante1 = (-67.093)/>;
+        <nom_constante1 AS INT /> ;
+        <nom_constante1 AS BOL /> ;
+        <nom_constante1 = 23/>;
+        <nom_constante1 AS INT /> ;
+    </SUB  CONSTANTE>
+    
+    <body>
+        <AFF: idf, 34 />
+        <AFF: T[3], "hello" />
+        <AFF: var, 34 / ((-4) + idf) * T[3] />
+        <AFF: a, AND(TRUE, FALSE) />
+        <AFF: a, OR(3, 1) />
+        <AFF: a, AND(NOT(TRUE), FALSE) />
+        <AFF: a, OR(AND(NOT(TRUE), FALSE), TRUE, T[5]) />
+        <AFF: a, AND(SUP(4*5, TAB[4]), TRUE) />
+        <AFF: a, SUP(3, T[3]) />
+        <AFF: a, DIF('v', 'c') />
+        <AFF: a, EGA("str1", "str2") />
+        <AFF: a, OR(SUP(4*5, TAB[4]), TRUE) />
+        <AFF: a, AND(NOT(OR('r', FALSE)), TRUE, OR("str", T[4])) />
+
+    </body>
+</docprogram>
