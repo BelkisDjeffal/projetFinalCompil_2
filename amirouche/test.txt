@@ -43,5 +43,65 @@
         <AFF: a, OR(SUP(4*5, TAB[4]), TRUE) />
         <AFF: a, AND(NOT(OR('r', FALSE)), TRUE, OR("str", T[4])) />
 
+        <INPUT : idf "donner la valeur de : $" />
+        <OUTPUT: "a est $:" + a + "b est: $" + b />
+
+        <IF: AND(EGA(a, 3), SUP(7, b)) >
+        <THEN>
+            <OUTPUT: "a = 3 et 7 > b " />
+            <IF: AND(EGA(a, 3), SUP(7, b)) >
+            <THEN>
+                <OUTPUT: "a = 3 et 7 > b " />
+                <OUTPUT: "a est $:" + a + "b est: $" + b />
+                <OUTPUT: "a = 3 et 7 > b " />
+            </THEN>
+            <ELSE>
+                <OUTPUT: "condition non vérifiée" />
+                <INPUT : idf "donner la valeur de : $" />
+            </ELSE>
+            </IF>
+            <AFF: a, AND(NOT(OR('r', FALSE)), TRUE, OR("str", T[4])) />
+        </THEN>
+        <ELSE>
+            <OUTPUT: "condition non vérifiée" />
+        </ELSE>
+        </IF>
+
+        <DO>
+            <OUTPUT: "condition vérifiée" />
+            <AFF: b, 23 + 34 />
+
+            <DO>
+                <OUTPUT: "condition vérifiée" />
+                <AFF: b, b + 1 />
+
+                <IF: AND(EGA(a, 3), SUP(7, b)) >
+                    <THEN>
+                       <!-- <OUTPUT: "a = 3 et 7> b" /> -->
+                    </THEN>
+                    <ELSE>
+                        <OUTPUT: "condition non vérifiée" />
+                    </ELSE>
+                </IF>
+
+                <WHILE : AND(EGA(a, 3),SUP(7, b)) />
+            </DO>
+
+            <WHILE : AND(EGA(a, 3),SUP(7, b)) />
+        </DO>
+
+        <FOR i=1 UNTIL 14>
+            <IF: AND(EGA(a, 3), SUP(7, b)) >
+                    <THEN>
+                        <OUTPUT: "condition vérifiée" />
+                        <AFF: b, b + 1 />
+                    </THEN>
+                    <ELSE>
+                        <OUTPUT: "condition non vérifiée" />
+                    </ELSE>
+                </IF>
+                <AFF: c, c * (-3) />
+        </FOR>
+
     </body>
 </docprogram>

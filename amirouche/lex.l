@@ -11,9 +11,9 @@ errFlt      [+-]?[0-9]+\.[0-9]+
 cstChr      \'.\'
 cstStr      \"[^"]*\"
 cstBol      TRUE|FALSE
-comment     <!--.*-->
 slashSup    \/[ ]*\>
 infSlash    \<[ ]*\/
+comment     <!--.*-->
 
 %%
 
@@ -77,10 +77,11 @@ body        {col = col + strlen(yytext); return mc_body;}
                 else 
                     return false;                   
             }
-{comment}   {col = col + strlen(yytext);}
 {idf}       {col = col + strlen(yytext); return idf;}
 {slashSup}  {col = col + strlen(yytext); return slash_sup;}
 {infSlash}  {col = col + strlen(yytext); return inf_slash;}
+{comment}   {col = col + strlen(yytext);}
+
 \<          {col = col + strlen(yytext); return inf;}
 \!          {col = col + strlen(yytext); return pt_exclamation;}
 \>          {col = col + strlen(yytext); return sup;}
@@ -100,4 +101,4 @@ body        {col = col + strlen(yytext); return mc_body;}
 
 [ \t]       {col = col + strlen(yytext);}
 \n          {col =1; nb_ligne++;}
-. {printf("erreur lexical a la ligne %d  la col %d entite %s \n",nb_ligne, col, yytext);}
+. {printf("erreur lexical à la ligne %d à la col %d entite %s \n", nb_ligne, col, yytext);}
