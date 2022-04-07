@@ -1,107 +1,56 @@
+
+<!-- 1) Idf double déclarée -->
+<!-- 2) Taille d'une tableau <= 0 -->
+<!-- 3) Changement de la valeure d'une constante -->
+<!-- 4) Idf non déclaré -->
+<!-- 5) Indice d'un tableau < 0 -->
+<!-- 6) Dépassement de la taille d’un tableau -->
+<!-- 7) Division sur zéro -->
+<!-- 8) Compatibilité et nombre de signe de formatage pour l'instruction INPUT -->
+<!-- 9) Compatibilité et nombre de signe de formatage pour l'instruction OUTPUT -->
+<!-- 10) Non compatibilité des types -->
+
+
 <!docprogram Test>
+    <SUB  VARIABLE>   
 
-<!-- comment -->
+        <vInt1 AS INT />;
+        <vInt2 AS INT />;
+        <vFlt1 AS FLT />;
+        <vBol1 AS BOL />;        
+        <vFlt3 | vFlt4 | vFlt5 AS FLT />;
+        <vInt3 | vInt4 | vInt5 AS INT />;
 
-    <SUB  VARIABLE>
-        
-        <nom_variable AS INT />;
-        <nom_variable AS INT />;
 
-        <!-- comment -->
-        
-        <ARRAY AS INT >        
-            <nom_tableau1: 2/>
-            <nom_tableau2: 3/>
-        </ARRAY>              
-        
-        <nom_variable | nom_variable2 AS INT />;
+        <ARRAY AS INT>        
+            <tab1: 10 />
+            <tab2 : (+3) />
+        </ARRAY>
+        <ARRAY AS FLT>        
+            <tabFlt1: 10 />
+            <tabFlt2 : (+3) />
+        </ARRAY>
+
+        <vBol2 | vBol3 | vBol14 AS BOL />;
 
     </SUB  VARIABLE>
-
     <SUB  CONSTANTE>
-        <nom_constante1 = (-3409)/>;
-        <nom_constante1 = TRUE/>;
-        <nom_constante1 = (-67.093)/>;
-        <nom_constante1 AS INT /> ;
-        <nom_constante1 AS BOL /> ;
-        <nom_constante1 = 23/>;
-        <nom_constante1 AS INT /> ;
+        <cInt1 = 23 />;
+        <cFlt1 = 67.355 />;
+        <cStr1 = "hello" />;
+        <cChr1 = 'k' />;
+        <cBol1 = FALSE />;
+        <cInt2 AS INT /> ;
+        <cInt3 | cInt4 | cInt5 AS INT /> ;
+        <cFlt2 | cFlt3 | cFlt4 AS FLT /> ;
+        <cBol2 AS BOL /> ;
     </SUB  CONSTANTE>
     
     <body>
-        <AFF: idf, 34 />
-        <AFF: T[3], "hello" />
-        <AFF: var, 34 / ((-4) + idf) * T[3] />
-        <AFF: a, AND(TRUE, FALSE) />
-        <AFF: a, OR(3, 1) />
-        <AFF: a, AND(NOT(TRUE), FALSE) />
-        <AFF: a, OR(AND(NOT(TRUE), FALSE), TRUE, T[5]) />
-        <AFF: a, AND(SUP(4*5, TAB[4]), TRUE) />
-        <AFF: a, SUP(3, T[3]) />
-        <AFF: a, DIF('v', 'c') />
-        <AFF: a, EGA("str1", "str2") />
-        <AFF: a, OR(SUP(4*5, TAB[4]), TRUE) />
-        <AFF: a, AND(NOT(OR('r', FALSE)), TRUE, OR("str", T[4])) />
+        <AFF: cFlt3, tabFlt2[(+2)] />
+        <AFF: cFlt3, tabFlt1[(+2)] />
 
-        <INPUT : idf "donner la valeur de : $" />
-        <OUTPUT: "a est $:" + a + "b est: $" + b />
-
-        <IF: AND(EGA(a, 3), SUP(7, b)) >
-        <THEN>
-            <OUTPUT: "a = 3 et 7 > b " />
-            <IF: AND(EGA(a, 3), SUP(7, b)) >
-            <THEN>
-                <OUTPUT: "a = 3 et 7 > b " />
-                <OUTPUT: "a est $:" + a + "b est: $" + b />
-                <OUTPUT: "a = 3 et 7 > b " />
-            </THEN>
-            <ELSE>
-                <OUTPUT: "condition non vérifiée" />
-                <INPUT : idf "donner la valeur de : $" />
-            </ELSE>
-            </IF>
-            <AFF: a, AND(NOT(OR('r', FALSE)), TRUE, OR("str", T[4])) />
-        </THEN>
-        <ELSE>
-            <OUTPUT: "condition non vérifiée" />
-        </ELSE>
-        </IF>
-
-        <DO>
-            <OUTPUT: "condition vérifiée" />
-            <AFF: b, 23 + 34 />
-
-            <DO>
-                <OUTPUT: "condition vérifiée" />
-                <AFF: b, b + 1 />
-
-                <IF: AND(EGA(a, 3), SUP(7, b)) >
-                    <THEN>
-                       <!-- <OUTPUT: "a = 3 et 7> b" /> -->
-                    </THEN>
-                    <ELSE>
-                        <OUTPUT: "condition non vérifiée" />
-                    </ELSE>
-                </IF>
-
-                <WHILE : AND(EGA(a, 3),SUP(7, b)) />
-            </DO>
-
-            <WHILE : AND(EGA(a, 3),SUP(7, b)) />
-        </DO>
-
-        <FOR i=1 UNTIL 14>
-            <IF: AND(EGA(a, 3), SUP(7, b)) >
-                    <THEN>
-                        <OUTPUT: "condition vérifiée" />
-                        <AFF: b, b + 1 />
-                    </THEN>
-                    <ELSE>
-                        <OUTPUT: "condition non vérifiée" />
-                    </ELSE>
-                </IF>
-                <AFF: c, c * (-3) />
-        </FOR>
-
+        <INPUT : tab1[(+4)] "donner la valeur de : $" />
+        <OUTPUT: "vInt1 est $:" + vInt1 + "vInt2 est: " />
     </body>
 </docprogram>
