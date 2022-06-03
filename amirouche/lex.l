@@ -107,5 +107,5 @@ body        {inserer(yytext, "mc"); yylval.strVal = strdup(yytext); col = col + 
 \]          {inserer(yytext, "sep"); yylval.strVal = strdup(yytext); col = col + strlen(yytext); return crochet_f;}
 
 [ \t]       {col = col + strlen(yytext);}
-\n          {col =1; nb_ligne++;}
+\n          {col = 1; nb_ligne++;}
 .           {printf("Erreur lexical à la ligne %d à la col %d entite %s \n", nb_ligne, col, yytext);}

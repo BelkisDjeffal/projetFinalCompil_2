@@ -598,7 +598,7 @@ INPUT: inf mc_input deux_pt idf string slash_sup {
                                     printf("\n --> Erreur semantique : signe de formatage incompatible a la ligne %d la col %d !\n", nb_ligne, col);
                                 break;
                         }
-                    else
+                    else if (j == 0)
                         printf("\n --> Erreur semantique : monque d'un signe de formatage a la ligne %d la col %d !\n", nb_ligne, col);
                 }
         }
@@ -647,7 +647,7 @@ INPUT: inf mc_input deux_pt idf string slash_sup {
                                     printf("\n --> Erreur semantique : signe de formatage incompatible a la ligne %d la col %d !\n", nb_ligne, col);
                                 break;
                         }
-                    else
+                    else if (j == 0)
                         printf("\n --> Erreur semantique : monque d'un signe de formatage a la ligne %d la col %d !\n", nb_ligne, col);
                 }
         }
@@ -698,7 +698,7 @@ INPUT: inf mc_input deux_pt idf string slash_sup {
                                     printf("\n --> Erreur semantique : signe de formatage incompatible a la ligne %d la col %d !\n", nb_ligne, col);
                                 break;
                         }
-                    else
+                    else if (j == 0)
                         printf("\n --> Erreur semantique : monque d'un signe de formatage a la ligne %d la col %d !\n", nb_ligne, col);
                 }
         }
@@ -860,8 +860,8 @@ BOUCLE_FOR:     inf mc_for idf egal entier mc_until entier sup
 %%
 main()
 {
-        yyparse();
-        afficher();
+    yyparse();
+    afficher();
 }
 yywrap() {}
 yyerror(char* msg)

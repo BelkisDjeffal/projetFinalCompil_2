@@ -1,6 +1,6 @@
 // 1-decalration
 
-typedef struct
+typedef struct 
 {
 	char nomEntite[100];
 	char codeEntite[10];
@@ -143,3 +143,47 @@ char type(char entite[])
 	else if (strcmp(ts[pos].typeEntite, "BOL") == 0)
 		return 'B';
 }
+
+/* ----------------- la partie quadruplets ------------------- */
+
+// typedef struct type_quad {
+//     char oper[100]; 
+//     char op1[100];   
+//     char op2[100];   
+//     char res[100];    
+// } type_quad;
+
+// type_quad quads[1000];
+// extern int qc;
+
+// void add_quad(char opr[], char op1[], char op2[], char res[])
+// {
+// 	strcpy(quads[qc].oper, opr);
+// 	strcpy(quads[qc].op1, op1);
+// 	strcpy(quads[qc].op2, op2);
+// 	strcpy(quads[qc].res, res);	
+// 	qc++;
+// }
+
+// void update_quad(int num_quad, int colon_quad, char val[])
+// {
+// 	if (colon_quad == 0) 
+// 		strcpy(quads[num_quad].oper, val);
+// 	else if (colon_quad == 1) 
+// 		strcpy(quads[num_quad].op1, val);
+// 	else if (colon_quad == 2) 
+// 		strcpy(quads[num_quad].op2, val);
+// 	else if (colon_quad == 3) 
+// 		strcpy(quads[num_quad].res, val);
+// }
+
+// void afficher_quads()
+// {
+// 	printf("\n --> /* ------------------ Les Quadruplets --------------- */\n");
+// 	int i;
+// 	for(i = 0; i < qc; i++)
+// 	{
+// 		printf("\n %d - ( %s  ,  %s  ,  %s  ,  %s )", i, quads[i].oper, quads[i].op1, quads[i].op2, quads[i].res); 
+// 		printf("\n--------------------------------------------------------\n");
+// 	}
+// }
