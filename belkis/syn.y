@@ -484,9 +484,9 @@ EXPRESSION: EXP_ARITH | EXP_LOGIQUE | EXP_COMPARAISON
 ;
 EXP_ARITH: OPD A
          | OPD A OPT EXP_ARITH {
-            char* src1= strdup($<strVal>1); 
-            quad("+",src1,$<strVal>3,$<strVal>$);
-            printf("%s",$<strVal>3 );
+            // char* src1= strdup($<strVal>1); 
+            // quad("+",src1,$<strVal>3,$<strVal>$);
+            // printf("%s",$<strVal>3 );
             
          }
          | EXP_ARITH_PAR 
